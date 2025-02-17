@@ -1,0 +1,15 @@
+.vscode/
+thesis/out/
+.DS_Store
+*.log
+*.pdf
+*.docx
+*.dvi
+*.aux
+*.bbl
+*.fls
+*.fdb_latexmk
+*.gz
+*.bst
+*.bib
+out/
