@@ -15,6 +15,27 @@
 \usepackage[nameinlink]{cleveref}
 \usepackage{subcaption}
 
+\usepackage{lipsum}
+
+% ADD THE FOLLOWING COUPLE LINES INTO YOUR PREAMBLE
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+}
+
+\creflabelformat{section}{#2#1#3節}
+\creflabelformat{enumerate}{#2#1#3}
+\creflabelformat{figure}{#2#1#3}
+\creflabelformat{table}{#2#1#3}
+\creflabelformat{equation}{#2(#1#3)}
+\crefname{section}{第}{第}
+\crefname{enumerate}{}{}
+\crefname{figure}{図}{図}
+\crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+
 \newcommand{\yj}[1]{{#1}^{(\lambda)}}
 \newcommand{\yjj}[1]{{#1}^{(\lambda_j)}}
 \newcommand{\yjs}[1]{{#1}^{(\lambda*)}}
@@ -59,14 +80,12 @@
 %\session{0A0-00}%% <-- 講演ID（必須)
 
 \begin{abstract}
-地理的犯罪予測であるRisk Terrain Modeling（RTM）は，
-廃屋や廃棄車両などの位置情報から犯罪発生リスクを算出する手法である．
-しかし高い空間相関をもつRTMの予測は実際の犯罪発生の特性とは乖離しており，
-不十分な予測精度として現れていた．これはRTMで離散値として構成された特徴量の問題である．
+Risk Terrain Modeling（RTM）は，廃屋や廃棄車両などの位置情報から犯罪発生リスクを算出する手法である．
+しかし高い空間相関をもつRTMの予測は実際の犯罪発生の特性とは乖離しており，不十分な予測精度として現れていた．
+これはRTMで離散値として構成された特徴量の問題である．
 そこで本研究ではRTMの特徴量として連続量を利用することを提案した．
-また併せて過去の犯罪発生に関する特徴量も追加した．
-この改善により，犯罪予測と機械学習の文脈で一般的であるPAIとROC-AUCの意味において，
-従来手法をそれぞれ70.7\%，13.5\%改善した. 
+この改善に加えて過去の犯罪発生に関する特徴量の追加により，犯罪予測において一般的なPAIの意味で従来手法を24.5\%改善した．
+またROC-AUCに関しても統計的に有意な改善が実現された．
 \end{abstract}
 
 

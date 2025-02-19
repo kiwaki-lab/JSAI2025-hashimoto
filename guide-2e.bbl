@@ -25,13 +25,13 @@ Jordahl,~K., et al.: geopandas/geopandas: v0.8.1 (2020)
 Joshi,~C. et al.: Considerations for developing predictive models of crime and new methods for measuring their accuracy (2020)
 
 \bibitem[Pedregosa 11]{scikit-learn}
-Pedregosa,~F. et al.: Scikit-learn: Machine Learning in {P}ython, {\em Journal of Machine Learning Research}, Vol.~12, pp. 2825--2830 (2011)
+Pedregosa,~F. et al.: Scikit-learn: Machine Learning in {P}ython, {\em JMLR}, Vol.~12, pp. 2825--2830 (2011)
 
 \bibitem[Public~Health 24]{ChicagoDataPortal}
 Public~Health,~of~C.~D. (2024), \url{https://data.cityofchicago.org/}
 
 \bibitem[Tibshirani 96]{Lasso}
-Tibshirani,~R.: Regression shrinkage and selection via the lasso, {\em Journal of the Royal Statistical Society Series B: Statistical Methodology}, Vol.~58, No.~1, pp. 267--288 (1996)
+Tibshirani,~R.: Regression shrinkage and selection via the lasso, {\em J. of the Royal Stat. Soc. Series B}, Vol.~58, No.~1, pp. 267--288 (1996)
 
 \bibitem[Weisberg 01]{weisberg2001yeo}
 Weisberg,~S.: Yeo-Johnson power transformations, {\em Department of Applied Statistics, University of Minnesota. Retrieved June}, Vol.~1, p. 2003 (2001)
