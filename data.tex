@@ -298,7 +298,7 @@ $i$番目のグリッドセルにおける応答変数を$y_i$，またその$j$
 \begin{align} \label{lasso_loss:eq}
   L_\mathrm{lasso}(w) := \frac{1}{n}\sum_{i=1}^n\left\|
     \yj{y}_i-\tr{w}{\yjs{x_i}}
-    \right\|^2 + \nu\sum_{j=1}^{d}|w_j|
+    \right\|^2 + \nu\sum_{j=1}^{d}|w_j|. 
 \end{align}
 ここで$\yjs{x}$は$\yjj{x_j}$を集めたベクトル，$w=\tr{(w_1, \cdots, w_d)}\in\real^{d}$は係数ベクトル，$\nu>0$は正則化の強度を制御するハイパーパラメータである．\cref{lasso_loss:eq}の最小化で得られる係数ベクトルを$\hat w$とする．
 Lassoの利用により，予測への寄与の小さい変数の重み$\hat w_j$が自動的に$0$となり，変数選択が実現される\cite{Lasso, islp, esl}．
