@@ -1,0 +1,61 @@
+This is upBibTeX, Version 0.99d-j0.36-u1.30 (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: guide-2e.aux
+The style file: jsai.bst
+Database file #1: main.bib
+Warning--entry type for "geopandas" isn't style-file defined
+--line 85 of file main.bib
+Warning--I didn't find a database entry for "bishop"
+Warning--I didn't find a database entry for "poisson"
+Warning--I didn't find a database entry for "大山智也2020日本"
+Warning--I didn't find a database entry for "Lasso"
+Warning--I didn't find a database entry for "esl"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--守山正 には，姓と名の間に空白がないよ？ in 犯罪予測
+Warning--守山正 には，姓と名の間に空白がないよ？ in 犯罪予測
+Warning--大山智也 には，姓と名の間に空白がないよ？ in 地理的犯罪予測研究の潮流
+Warning--大山智也 には，姓と名の間に空白がないよ？ in 地理的犯罪予測研究の潮流
+You've used 12 entries,
+            3266 wiz_defined-function locations,
+            767 strings with 7488 characters,
+and the built_in function-call counts, 7462 in all, are:
+= -- 616
+> -- 389
+< -- 15
++ -- 148
+- -- 146
+* -- 535
+:= -- 1007
+add.period$ -- 0
+call.type$ -- 12
+change.case$ -- 110
+chr.to.int$ -- 12
+cite$ -- 16
+duplicate$ -- 326
+empty$ -- 535
+format.name$ -- 251
+if$ -- 1667
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 12
+newline$ -- 39
+num.names$ -- 24
+pop$ -- 193
+preamble$ -- 1
+purify$ -- 133
+quote$ -- 0
+skip$ -- 408
+stack$ -- 0
+substring$ -- 228
+swap$ -- 77
+text.length$ -- 15
+text.prefix$ -- 4
+top$ -- 0
+type$ -- 126
+warning$ -- 4
+while$ -- 40
+width$ -- 15
+write$ -- 128
+is.kanji.str$ -- 229
+(There were 10 warnings)
