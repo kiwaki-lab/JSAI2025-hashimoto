@@ -311,7 +311,7 @@ Lassoの利用により，予測への寄与の小さい変数の重み$\hat w_j
 \begin{align*}
  {\yj{\hat y}} = \tr{\hat w} \yjs{x}
 \end{align*}
-と算出できる．ただし$\yj{\hat y}$はYeo-Johnson変換後の値として意味を持つので，直接解釈は出来ない．そのため，リスクマップを構成する際には，$\yj{\hat y}$へYeo-Johnson逆変換を施し，$\hat y$とする．
+と算出できる．ただし$\yj{\hat y}$はYeo-Johnson変換後の値として意味を持つので，直接解釈は出来ない．そのため，リスクマップを構成する際には，$\yj{\hat y}$へYeo-Johnson逆変換を施した$\hat y$を用いる．
 %\yj{y}_i
 
 % モデルの出力値に対して，Yeo-Johnson逆変換を行って，
