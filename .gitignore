@@ -6,10 +6,7 @@ thesis/out/
 *.docx
 *.dvi
 *.aux
-*.bbl
 *.fls
 *.fdb_latexmk
 *.gz
-*.bst
-*.bib
 out/
