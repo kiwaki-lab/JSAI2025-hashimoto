@@ -232,11 +232,6 @@ RTMの特徴量構成法は離散化により予測変数の情報が十分に�
 
 \begin{figure*}[t]
   \centering 
-  % \begin{subfigure}{0.4\textwidth}
-  %   \includegraphics[scale=0.25]{./figures/actual_riskmap.png}
-  %   \caption{真値}
-  %   \label{fig:non-crime-timeseries-actual-risk}
-  % \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[scale=0.25]{./figures/DF_riskmap.png}
     \caption{DF}
@@ -252,6 +247,7 @@ RTMの特徴量構成法は離散化により予測変数の情報が十分に�
     \caption{\cfsq}
     \label{fig:non-crime-timeseries-ci-risk}
   \end{subfigure}
+  \label{fig:non-crime-timeseries-risks}
   \caption{各手法によるリスクマップの比較}
 \end{figure*}
 
@@ -330,12 +326,20 @@ Lassoの利用により，予測への寄与の小さい変数の重み$\hat w_j
 
 %------------------------------------
 \subsection{データセット}
-%------------------------------------
-\input{dataset.tex}
+本研究では，\cite{caplan2015risk}が提案するRTMと同様に，
+アメリカ合衆国のイリノイ州クック郡の郡庁所在地であるシカゴ市を対象領域とする．
+応答変数を構成する犯罪発生地点及び，予測変数を構成する地理的リスク要因の位置情報は，
+\cite{ChicagoDataPortal}のAPIを用いて緯度経度情報として取得した．
+
+取得したデータ期間は2011年1月1日〜2014年12月31日で，
+それぞれの犯罪発生地点と地理的リスク要因の位置情報は，
+ともに発生時刻・記録年を基に1年単位で取得した．
+表\ref{tab:2011-2014-data}に取得した全データ件数を示す．
 
 
+
 %------------------------------------
-\subsection{評価指標}
+\subsection{評価指標}\label{sec:criteria}
 %------------------------------------
 まず性能評価に際してはモデルが予測した犯罪発生リスクを，
 高リスク（$平均+1標準偏差以上$）と低リスク（$平均+1標準偏差未満$）にカテゴリー化する．
@@ -343,7 +347,7 @@ Lassoの利用により，予測への寄与の小さい変数の重み$\hat w_j
 
 評価指標としては，犯罪予測の文脈で一般的な
 的中率\cite{joshi2020considerationsdevelopingpredictivemodels}ならびに
-PAI\cite{chainey2008utility}に加え，分類学習で一般的なarea under the receiver operating characteristic（ROC） curve\cite{islp}で年単位の評価を行う．
+PAI\cite{chainey2008utility}に加え，分類学習で一般的なarea under the receiver operating characteristic（ROC） curve\cite{islp}を用いた．
 
 的中率とは，予測モデルが「高リスク」と特定したエリアの中で、実際に犯罪が発生した割合である：
 \begin{equation}\label{hitrate}
@@ -365,8 +369,22 @@ PAIでは高リスクエリア面積割合を分母に置くことで，的中�
   \centering 
   \includegraphics[scale=0.25]{./figures/roc.png}
   \caption{各手法のROC曲線}
-  \label{fig:non-crime-timeseries-actual-risk}
+  \label{fig:roc}
 \end{figure}
+\begin{table}[htbp]
+  \centering
+  \caption{各モデル間の精度比較}
+  \begin{tabular}{l|r||r|r}
+  \hline
+
+  モデル & DF & CF & \cfsq \\  \hline\hline
+  的中率 & \bf{57.2} & 30.2 & 31.3  \\ 
+  PAI & 1.84 & 2.18 & \bf{2.29} \\ 
+  AUC & 0.74 & \bf{0.76} & \bf{0.76} \\ \hline
+  \end{tabular}
+  \label{tb:fig:non-crime-timeseries-index}
+\end{table}
+
 
 
 \subsection{実験条件}
@@ -381,7 +399,7 @@ PAIでは高リスクエリア面積割合を分母に置くことで，的中�
 
 また対象地域に設定したグリッドは130m$\times$130mである．
 なお，特徴量構成に関わるスケールパラメータは271m, 591m, 779m, 1003mであり，これらで構成した特徴量はモデルへ並列に入力した．
-これらのスケールパラメータの値はシカゴ市の2ブロック，4ブロック，6ブロック，8ブロックに相当する．
+これらのスケールパラメータの値はシカゴ市の2，4，6，8ブロックに相当する．
 
 応答変数は，各グリッドセル内で発生した強盗犯罪件数とした．
 また予測変数として用いた地理的リスク要因は，
@@ -392,20 +410,24 @@ PAIでは高リスクエリア面積割合を分母に置くことで，的中�
 なおLasso回帰による変数選択を適切に実行するため，前処理として予測変数の標準化も実施した．
 
 %------------------------------------
-学習，検証，テストに関わるデータの分割は以下の通りである．
-1年ずつ予測変数と応答変数の対をずらすことで，予測に未来の情報を用いないようにする．
-学習データの構成は，2011年の地理的リスク要因を予測変数としてそれに対する応答変数を2012年に発生した強盗犯罪とする．
-これに加えて，2012年の地理的リスク要因を予測変数として，それに対する応答変数を2012年に発生した強盗犯罪とする．
-この計2年分の予測変数と応答変数の対を学習データとする．
-またテストデータは，2013年の地理的リスク要因を予測変数としてそれに対する応答変数を2014年に発生した強盗犯罪とする．
-
-Lasso回帰の正則化パラメータ$\nu$の最適化は，20分割の交差検証\cite{islp}で実施した．
+学習データとテストデータの分割は以下の通りである．まず季節変動を除くため，分割の単位は年単位とした．
+また予測変数の構成にあたってはデータリークを防ぐため，ある年の応答変数の予測には前年の予測変数を利用した（2010年の予測変数は取得できなかったので，2011年の応答変数は利用していない）．
+これを踏まえて本研究では，2012年および2013年の応答変数とそれぞれ対応する予測変数を学習データとし，2014年の応答変数と2013年の予測変数をテストデータとして設定した．探索の必要があるハイパーパラメータはLasso回帰の正則化パラメータ$\nu$であるが，この最適化は学習データに対する20分割交差検証で行った．
 
 %------------------------------------
 \subsection{結果}
-%------------------------------------
-\input{non-crime-timeseries-result.tex}
-%------------------------------------
+テストデータから算出した2014年の強盗犯罪に関わるリスクマップ（以下，真のリスクマップ）を図\ref{fig:non-crime-timeseries-actual-risk}に示す．
+またDF, CF, \cfsq の各手法によるリスクマップを\ref{fig:non-crime-timeseries-risks}に示す．
+真のリスクマップと比べて，DFによるリスクマップは高い空間相関を持つ．
+一方，CFと\cfsq によるリスクマップは空間相関が削減されていることが観察できる．
+これはDFでは離散化に起因した未学習が起きていることに対して，CF・\cfsq ではこの問題が改善されていると理解できる．
+
+各手法による予測の定量的な評価結果を表\ref{tb:fig:non-crime-timeseries-index}にまとめる．
+的中率が最も高いのはDFであるが，\cref{sec:criteria}で述べた通り，的中率では偽陽性を評価できないため，PAIとAUCに注目する．
+PAIは，CFにより大きく改善し，\cfsq では更なる改善が確認できた．
+次にAUCは，CF・\cfsq で同等の改善が確認できた．
+またDFと\cfsq のAUC値の有意差を評価するためにDeLong検定\cite{DeLong}を実施した結果，
+$p<0.001$となり，提案手法によるROC-AUCの改善が統計的に有意であると確認できた．
 
 
 
