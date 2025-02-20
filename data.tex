@@ -290,7 +290,8 @@ RTM\cite{caplan2015risk}は，
 まずLasso回帰を実行するにあたって，応答変数の分布が正規分布から大きく乖離している場合には適切な学習が難しくなると知られている\cite{islp, esl}．一方で，犯罪の発生分布は多くの地域で治安が良い反面，一部の犯罪多発地域も存在する．つまり犯罪の発生分布は大きな歪みと裾の重さを持ち，従って正規分布とは大きく乖離したものとなる．
 %
 
-この問題へ対処するため，本研究では前処理として応答変数と予測変数をYeo-Johnson変換\cite{weisberg2001yeo}する：
+
+この問題へ対処するため，本研究では前処理として応答変数と予測変数をYeo-Johnson変換\cite{yeo}する：
 \begin{align}\label{yeo:eq}
   \yj{\yjv} =
    \begin{cases} 
@@ -461,8 +462,9 @@ PAIは，CFにより大きく改善し，\cfsq では更なる改善が確認で
 
 %また従来手法によるRTMのアルゴリズムを簡略化して再実装することにより，製品版RTMを利用するだけでは至らなかった改善を実施することができた．
 
+\input{bibitem.tex}
 
-\bibliography{main}
-\bibliographystyle{jsai}
+% \bibliography{main}
+% \bibliographystyle{jsai}
 
 %%
