@@ -31,13 +31,13 @@ Joshi,~C., D'Ath,~C., Curtis-Ham,~S., and Searle,~D.: Considerations for develop
 Nelder,~J.~A. and Wedderburn,~R.~W.~M.: Generalized Linear Models, {\em Journal of the Royal Statistical Society. Series A (General)}, Vol. 135, No.~3, pp. 370--384 (1972)
 
 \bibitem[Pedregosa 11]{scikit-learn}
-Pedregosa,~F., Varoquaux,~G., Gramfort,~A., Michel,~V., Thirion,~B., Grisel,~O., Blondel,~M., Prettenhofer,~P., Weiss,~R., Dubourg,~V., Vanderplas,~J., Passos,~A., Cournapeau,~D., Brucher,~M., Perrot,~M., and Duchesnay,~E.: Scikit-learn: Machine Learning in {P}ython, {\em Journal of Machine Learning Research}, Vol.~12, pp. 2825--2830 (2011)
+Pedregosa,~F. et al.: Scikit-learn: Machine Learning in {P}ython, {\em JMLR}, Vol.~12, pp. 2825--2830 (2011)
 
 \bibitem[Public~Health 24]{ChicagoDataPortal}
 Public~Health,~of~C.~D. (2024), \url{https://data.cityofchicago.org/}
 
 \bibitem[Tibshirani 96]{Lasso}
-Tibshirani,~R.: Regression shrinkage and selection via the lasso, {\em Journal of the Royal Statistical Society Series B: Statistical Methodology}, Vol.~58, No.~1, pp. 267--288 (1996)
+Tibshirani,~R.: Regression shrinkage and selection via the lasso, {\em J. of the Royal Stat. Soc. Series B}, Vol.~58, No.~1, pp. 267--288 (1996)
 
 \bibitem[守山 22]{犯罪予測}
 守山正：犯罪予測 : AIによる分析, 成文堂 (2022)
