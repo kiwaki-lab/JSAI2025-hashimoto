@@ -287,52 +287,54 @@ RTMの特徴量構成法は離散化により予測変数の情報が十分に�
 %------------------------------------
 \subsection{Lasso回帰によるRTMの実装}
 %------------------------------------
-まずLasso回帰を実行するにあたって，応答変数の分布が正規分布から大きく乖離している場合には適切な学習が難しくなると知られている\cite{islp, esl}．一方で，犯罪の発生分布は多くの地域で治安が良い反面で，一部の犯罪多発地域も存在する．つまり犯罪の発生分布は大きな歪みと裾の重さを持ち，従って正規分布とは大きく乖離したものとなる．
+まずLasso回帰を実行するにあたって，応答変数の分布が正規分布から大きく乖離している場合には適切な学習が難しくなると知られている\cite{islp, esl}．一方で，犯罪の発生分布は多くの地域で治安が良い反面，一部の犯罪多発地域も存在する．つまり犯罪の発生分布は大きな歪みと裾の重さを持ち，従って正規分布とは大きく乖離したものとなる．
 %
 
-この問題へ対処するため本研究では前処理として，応答変数と予測変数をYeo-Johnson変換\cite{yeo}する：
-\begin{equation*}\label{yeo:eq}
+この問題へ対処するため，本研究では前処理として応答変数と予測変数をYeo-Johnson変換\cite{yeo}する：
+\begin{align}\label{yeo:eq}
   \yj{\yjv} =
    \begin{cases} 
    \frac{(\yjv+1)^\lambda - 1}{\lambda}, & \text{if } \lambda \neq 0, \yjv \geq 0,  \\ 
    \log(\yjv+1), & \text{if } \lambda = 0, \yjv \geq 0,   \\ 
    \frac{-(-\yjv+1)^{2-\lambda} + 1}{2-\lambda}, & \text{if } \lambda \neq 2, \yjv < 0,  \\ 
-   -\log(-\yjv+1) & \text{if } \lambda = 2, \yjv. < 0
-   \end{cases}
-\end{equation*}
+   -\log(-\yjv+1) & \text{if } \lambda = 2, \yjv < 0.
+   \end{cases}  
+\end{align}
 ここで$\yjv$は変換前の値，$\yj{\yjv}$は変換後の値であり，$\lambda$はデータから推定される変換パラメータである．
-またYeo-Johnson変換の逆変換は以下となる：
-\begin{equation*}\label{yeo_inv:eq}
+また\cref{yeo:eq}の逆変換は以下となる：
+\begin{align}
+  \label{yeo_inv:eq}
   \yjv =
   \begin{cases} 
     (\lambda\yj{\yjv}+1)^{\frac{1}{\lambda}}-1, & \text{if } \lambda \neq 0, \yjv \geq 0,  \\ 
   \exp(\yj{\yjv})-1, & \text{if } \lambda = 0, \yjv \geq 0,   \\ 
   1-(1-(2-\lambda)\yj{\yjv})^{\frac{1}{2-\lambda}}, & \text{if } \lambda \neq 2, \yjv < 0,  \\ 
   1-\exp(-\yj{\yjv}), & \text{if } \lambda = 2,  \yjv < 0.
-  \end{cases}
-\end{equation*}
+  \end{cases}  
+\end{align}
 
-$i$番目のグリッドセルにおける応答変数を$y_i$，またその$j$番目の地理的リスク要因に関する特徴量を$x_{ij}$とする（$i=1,\cdots, n,\quad j=0,\cdots, d$．ただし$j=0$はバイアス項に対応）．これらのYeo-Johnson変換結果を$\yj{y_i}, \yjj{x_{ij}}$とすれば，Lasso回帰は以下の目的関数の最小化として実現される\cite{Lasso}：
+
+$i$番目のグリッドセルにおける応答変数を$y_i$，またその$j$番目の地理的リスク要因に関する特徴量を$x_{ij}$とする（$i=1,\cdots, n,\quad j=1,\cdots, d$）．これらのYeo-Johnson変換結果を$\yj{y_i}, \yjj{x_{ij}}$とすれば，Lasso回帰は以下の目的関数の最小化として実現される\cite{Lasso}：
 \begin{align} \label{lasso_loss:eq}
   L_\mathrm{lasso}(w) := \frac{1}{n}\sum_{i=1}^n\left\|
     \yj{y}_i-\tr{w}{\yjs{x_i}}
     \right\|^2 + \nu\sum_{j=1}^{d}|w_j|. 
 \end{align}
-ここで$\yjs{x}$は$\yjj{x_j}$を集めたベクトル，$w=\tr{(w_0, \cdots, w_d)}\in\real^{d+1}$は係数ベクトル，$\nu>0$は正則化の強度を制御するハイパーパラメータである．\cref{lasso_loss:eq}の最小化で得られる係数ベクトルを$\hat w$とする．
+ここで$\yjs{x_i}:=\tr{(1, x_{i1}^{(\lambda_1)}, \cdots, x_{id}^{(\lambda_d)})}$，$w:=\tr{(w_0, \cdots, w_d)}$は係数ベクトル，$\nu>0$は正則化の強度を制御するハイパーパラメータである．\cref{lasso_loss:eq}の最小化で得られる係数ベクトルを$\hat w$とする．
 Lassoの利用により，予測への寄与の小さい変数の重み$\hat w_j$が自動的に$0$となり，変数選択が実現される\cite{Lasso, islp, esl}．
 
-新たに追加された区画における予測変数を$x=\tr{(1, x_1, \cdots, x_d)}$，そのYeo-Johnson変換を$\yjs{x}$とすれば，その区画での犯罪リスクは$\hat w$を用いて
+新たに追加された区画における予測変数を$x=\tr{(x_1, \cdots, x_d)}$，そのYeo-Johnson変換結果を$\yjs{x}$とすれば，その区画での犯罪リスクは$\hat w$を用いて
 \begin{align*}
  {\yj{\hat y}} = \tr{\hat w} \yjs{x}
 \end{align*}
-と算出できる．ただし$\yj{\hat y}$はYeo-Johnson変換後の値として意味を持つので，直接解釈は出来ない．そのため，リスクマップを構成する際には，$\yj{\hat y}$へYeo-Johnson逆変換を施した$\hat y$を用いる．
+と算出できる．ただし$\yj{\hat y}$はYeo-Johnson変換後の値として意味を持つので，直接解釈できない．そのため，リスク値としては$\yj{\hat y}$の\cref{yeo_inv:eq}による逆変換結果$\hat y$を用いる．
 %\yj{y}_i
 
 % モデルの出力値に対して，Yeo-Johnson逆変換を行って，
 % 予測値の分布を元の犯罪の分布に近づけた．モデルの予測値は連続値であるため，
 % 精度評価やリスクマップ表示の際には，予測値をそれぞれを適切な基準で離散化する．
  
-以降，本論文におけるRTMの実装は\cite{caplan2015risk}のものでは無く，本節で述べたLassoによるものとする。
+以降，本論文におけるRTMの実装は\cite{caplan2015risk}のものでは無く，本節で述べたLasso回帰によるものとする。
 
 
 
