@@ -4,9 +4,8 @@ The top-level auxiliary file: guide-2e.aux
 The style file: jsai.bst
 Database file #1: main.bib
 Warning--entry type for "geopandas" isn't style-file defined
---line 85 of file main.bib
-Warning--I didn't find a database entry for "bishop"
-Warning--I didn't find a database entry for "poisson"
+--line 88 of file main.bib
+Warning--I didn't find a database entry for "weisberg2001yeo"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--守山正 には，姓と名の間に空白がないよ？ in 犯罪予測
@@ -16,46 +15,46 @@ Warning--大山智也 には，姓と名の間に空白がないよ？ in 地理
 Warning--大山智也 には，姓と名の間に空白がないよ？ in 大山智也2020日本
 Warning--大山智也 には，姓と名の間に空白がないよ？ in 大山智也2020日本
 Warning--empty journal in 大山智也2020日本
-You've used 15 entries,
+You've used 16 entries,
             3266 wiz_defined-function locations,
-            781 strings with 7902 characters,
-and the built_in function-call counts, 8889 in all, are:
-= -- 741
-> -- 425
-< -- 18
-+ -- 161
-- -- 158
-* -- 623
-:= -- 1184
+            787 strings with 8066 characters,
+and the built_in function-call counts, 9388 in all, are:
+= -- 785
+> -- 437
+< -- 19
++ -- 165
+- -- 162
+* -- 658
+:= -- 1244
 add.period$ -- 0
-call.type$ -- 15
-change.case$ -- 125
-chr.to.int$ -- 15
-cite$ -- 22
-duplicate$ -- 408
-empty$ -- 666
-format.name$ -- 279
-if$ -- 1999
+call.type$ -- 16
+change.case$ -- 131
+chr.to.int$ -- 16
+cite$ -- 23
+duplicate$ -- 434
+empty$ -- 715
+format.name$ -- 287
+if$ -- 2116
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 16
-newline$ -- 48
-num.names$ -- 30
-pop$ -- 227
+missing$ -- 18
+newline$ -- 51
+num.names$ -- 32
+pop$ -- 240
 preamble$ -- 1
-purify$ -- 154
+purify$ -- 161
 quote$ -- 0
-skip$ -- 509
+skip$ -- 539
 stack$ -- 0
-substring$ -- 282
-swap$ -- 93
-text.length$ -- 18
+substring$ -- 313
+swap$ -- 96
+text.length$ -- 19
 text.prefix$ -- 6
 top$ -- 0
-type$ -- 156
+type$ -- 162
 warning$ -- 7
-while$ -- 49
+while$ -- 53
 width$ -- 19
-write$ -- 160
-is.kanji.str$ -- 274
-(There were 10 warnings)
+write$ -- 171
+is.kanji.str$ -- 291
+(There were 9 warnings)

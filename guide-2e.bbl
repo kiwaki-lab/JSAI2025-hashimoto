@@ -1,31 +1,37 @@
 \begin{thebibliography}{}
 
+\bibitem[Bishop 07]{bishop}
+Bishop,~C.~M.: {\em Pattern Recognition and Machine Learning (Information Science and Statistics)}, Springer, 1 edition (2007)
+
 \bibitem[Caplan 15]{caplan2015risk}
-Caplan,~J.~M.et al.: Risk terrain modeling for spatial risk assessment, {\em Cityscape}, Vol.~17, No.~1, pp. 7--16 (2015)
+Caplan,~J.~M., Kennedy,~L.~W., Barnum,~J.~D., and Piza,~E.~L.: Risk terrain modeling for spatial risk assessment, {\em Cityscape}, Vol.~17, No.~1, pp. 7--16 (2015)
 
 \bibitem[Chainey 08]{chainey2008utility}
 Chainey,~S., Tompson,~L., and Uhlig,~S.: The utility of hotspot mapping for predicting spatial patterns of crime, {\em Security journal}, Vol.~21, pp. 4--28 (2008)
 
 \bibitem[DeLong 88]{DeLong}
-DeLong,~E.~R., et al.: Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach, {\em Biometrics}, Vol.~44, No.~3, pp. 837--845 (1988)
+DeLong,~E.~R., DeLong,~D.~M., and Clarke-Pearson,~D.~L.: Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach, {\em Biometrics}, Vol.~44, No.~3, pp. 837--845 (1988)
 
 \bibitem[Hastie 01]{esl}
-Hastie,~T., et al.: {\em The Elements of Statistical Learning}, Springer Series in Statistics, Springer New York Inc., New York, NY, USA (2001)
+Hastie,~T., Tibshirani,~R., and Friedman,~J.: {\em The Elements of Statistical Learning}, Springer Series in Statistics, Springer New York Inc., New York, NY, USA (2001)
 
 \bibitem[Hilbe 11]{Hilbe_2011}
 Hilbe,~J.~M.: {\em Negative Binomial Regression}, Cambridge University Press, 2 edition (2011)
 
 \bibitem[James 23]{islp}
-James,~G., et al.: {\em An Introduction to Statistical Learning with Applications in Python}, Springer Texts in Statistics, Springer, Cham (2023)
+James,~G., Witten,~D., Hastie,~T., Tibshirani,~R., and Taylor,~J.: {\em An Introduction to Statistical Learning with Applications in Python}, Springer Texts in Statistics, Springer, Cham (2023)
 
 \bibitem[Jordahl 20]{geopandas}
-Jordahl,~K., et al.: geopandas/geopandas: v0.8.1 (2020)
+Jordahl,~K., Bossche,~den J.~V., Fleischmann,~M., Wasserman,~J., McBride,~J., Gerard,~J., Tratner,~J., Perry,~M., Badaracco,~A.~G., Farmer,~C., Hjelle,~G.~A., Snow,~A.~D., Cochran,~M., Gillies,~S., Culbertson,~L., Bartos,~M., Eubank,~N., maxalbert,~, Bilogur,~A., Rey,~S., Ren,~C., Arribas-Bel,~D., Wasser,~L., Wolf,~L.~J., Journois,~M., Wilson,~J., Greenhall,~A., Holdgraf,~C., Filipe,~, and Leblanc,~F.: geopandas/geopandas: v0.8.1 (2020)
 
 \bibitem[Joshi 20]{joshi2020considerationsdevelopingpredictivemodels}
-Joshi,~C. et al.: Considerations for developing predictive models of crime and new methods for measuring their accuracy (2020)
+Joshi,~C., D'Ath,~C., Curtis-Ham,~S., and Searle,~D.: Considerations for developing predictive models of crime and new methods for measuring their accuracy (2020)
+
+\bibitem[Nelder 72]{poisson}
+Nelder,~J.~A. and Wedderburn,~R.~W.~M.: Generalized Linear Models, {\em Journal of the Royal Statistical Society. Series A (General)}, Vol. 135, No.~3, pp. 370--384 (1972)
 
 \bibitem[Pedregosa 11]{scikit-learn}
-Pedregosa,~F. et al.: Scikit-learn: Machine Learning in {P}ython, {\em Journal of Machine Learning Research}, Vol.~12, pp. 2825--2830 (2011)
+Pedregosa,~F., Varoquaux,~G., Gramfort,~A., Michel,~V., Thirion,~B., Grisel,~O., Blondel,~M., Prettenhofer,~P., Weiss,~R., Dubourg,~V., Vanderplas,~J., Passos,~A., Cournapeau,~D., Brucher,~M., Perrot,~M., and Duchesnay,~E.: Scikit-learn: Machine Learning in {P}ython, {\em Journal of Machine Learning Research}, Vol.~12, pp. 2825--2830 (2011)
 
 \bibitem[Public~Health 24]{ChicagoDataPortal}
 Public~Health,~of~C.~D. (2024), \url{https://data.cityofchicago.org/}
@@ -33,16 +39,13 @@ Public~Health,~of~C.~D. (2024), \url{https://data.cityofchicago.org/}
 \bibitem[Tibshirani 96]{Lasso}
 Tibshirani,~R.: Regression shrinkage and selection via the lasso, {\em Journal of the Royal Statistical Society Series B: Statistical Methodology}, Vol.~58, No.~1, pp. 267--288 (1996)
 
-\bibitem[Weisberg 01]{weisberg2001yeo}
-Weisberg,~S.: Yeo-Johnson power transformations, {\em Department of Applied Statistics, University of Minnesota. Retrieved June}, Vol.~1, p. 2003 (2001)
-
 \bibitem[守山 22]{犯罪予測}
 守山正：犯罪予測 : AIによる分析, 成文堂 (2022)
 
 \bibitem[大山 17]{地理的犯罪予測研究の潮流}
-大山智也, et al.：地理的犯罪予測研究の潮流, GIS-理論と応用, Vol.~25, No.~1, pp. 33--43 (2017)
+大山智也, 雨宮護, 島田貴仁, 中谷友樹：地理的犯罪予測研究の潮流, GIS-理論と応用, Vol.~25, No.~1, pp. 33--43 (2017)
 
 \bibitem[大山 20]{大山智也2020日本}
-大山智也：日本における地理的犯罪予測手法の開発に関する研究 (2020)
+大山智也, オオヤマトモヤ：日本における地理的犯罪予測手法の開発に関する研究 (2020)
 
 \end{thebibliography}
